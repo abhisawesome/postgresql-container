@@ -13,15 +13,8 @@ services:
         - ./pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    
-
     networks: 
         - db_network
-#   adminer:
-#     image: adminer
-#     restart: always
-#     ports:
-#       - 8081:8080
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
@@ -39,6 +32,5 @@ services:
         - db
     volumes:
         - ./pgadminData/:/var/lib/pgadmin
-    
 networks:
   db_network: {}
