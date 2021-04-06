@@ -6,9 +6,9 @@ services:
     image: postgres
     restart: always
     environment:
-        POSTGRES_USER: root
-        POSTGRES_PASSWORD: root
-        POSTGRES_DB: test_db
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        POSTGRES_DB: ${POSTGRES_DB}
     volumes:
         - ./pgdata:/var/lib/postgresql/data
     ports:
@@ -22,8 +22,8 @@ services:
     networks: 
         - db_network
     environment:
-        PGADMIN_DEFAULT_EMAIL: admin@admin.com
-        PGADMIN_DEFAULT_PASSWORD: root
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
         PGADMIN_LISTEN_ADDRESS: 0.0.0.0
         PGADMIN_LISTEN_PORT: 8080
     ports:
